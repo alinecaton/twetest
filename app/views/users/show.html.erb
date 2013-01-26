@@ -1,0 +1,27 @@
+
+<h2><%= "#{@user.name} (#{@user.username})" %></h2>
+<h3><%= "#{l @user.birthday}" %></h3>
+<div id='tw'>
+  <%= form_for @tweet do |f| %>
+    <%= f.hidden_field :user_id, :value => @user.id %>
+    <%= f.label :message, "O que está acontecendo com #{@user.name}? " %>
+    <br>
+    <%= f.text_area :tweets, rows: 4%>
+    <br>
+    <%= f.submit 'Enviar' %>
+  <% end %>
+</div>
+<br>
+<br>
+<% @tweets.each do |tweet| %>
+<div id="message">
+  <%= tweet.tweets %>
+  <br>
+  <%= link_to "Apagar Tweet", tweet_path(tweet),
+    :method => :delete, :confirm => 'Tem certeza que deseja apagar o tweet?'
+  %>
+  <br>
+  <br>
+</div>
+<% end %>
+

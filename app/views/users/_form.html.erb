@@ -1,0 +1,19 @@
+<%= form_for @user do |f| %>
+  <%= f.label :name, 'Nome:' %>
+  <br>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <%= f.label :username, 'Nome do usuário:' %>
+  <br>
+  <%= f.text_field :username %>
+  <br>
+  <br>
+  <%= f.label :birthday, 'Aniversário:' %>
+  <br>
+  <%= f.date_select :birthday, :start_year => Time.now.year, :end_year => 1900 %>
+  <br>
+  <br>
+  <br>
+  <%= f.submit 'Salvar' %>
+<% end %>
